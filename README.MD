@@ -28,7 +28,7 @@ npm install
 - Vào Service Accounts vừa tạo
 - KEYS > ADD KEYS > Create a new key
 - Save as `ttsapp.json`
-- Copy to `ttsapp.json` Project directory
+- Copy `ttsapp.json` vào thư mục dự án
 
 5. **Nhập văn bản cần chuyển đổi vào file `/run/input.txt`**
 
