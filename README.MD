@@ -18,19 +18,33 @@ Trong thư mục dự án vừa tải về, chạy lệnh sau trên để cài �
 npm install
 ```
 
-4. **Lấy TTS API Credential từ Google Cloud**
+4. **Active và lấy Credential từ Google Cloud**
 
 - Signup and Active [Google Cloud Console](https://console.cloud.google.com/)
 - Active [Cloud Text-to-Speech API](https://console.cloud.google.com/marketplace/product/google/texttospeech.googleapis.com)
 - Navigation Menu > APIs & Services > Credentials
-- CREATE CREDENTIALS/ Service Account
-- Nhập Name, Role(Basic/Owner) và tạo
+- CREATE CREDENTIALS > Service Account
+- Nhập Name, Role (Basic/Owner) > Done
 - Vào Service Accounts vừa tạo
 - KEYS > ADD KEYS > Create a new key
 - Save as `ttsapp.json`
 - Copy to `ttsapp.json` Project directory
 
-5. **Cài đặt giọng nói**
+5. **Nhập văn bản cần chuyển đổi vào file `/run/input.txt`**
+
+6. **Chạy chương trình**
+
+Chạy `/run/run.bat` hoặc terminal ở thư mục dự án
+
+```bash
+npm run start
+```
+
+7.  **File audio sẽ được lưu tại folder `/output`**
+
+## Cài đặt mở rộng
+
+1. **Cài đặt giọng nói**
 
 Chạy `/run/config.bat` hoặc terminal ở thư mục dự án
 
@@ -40,14 +54,36 @@ npm run setting
 
 > Các từ khóa tùy chỉnh giọng nói tham khảo ở [đây](https://cloud.google.com/text-to-speech/docs/).
 
-6. **Nhập văn bản cần chuyển đổi vào file `/run/input.txt`**
+2. **Xem các giọng nói hỗ trợ ngôn ngữ hiện tại**
 
-7. **Chạy chương trình**
-
-Chạy `/run/run.bat` hoặc terminal ở thư mục dự án
+Chạy `/run/voice.bat` hoặc terminal ở thư mục dự án
 
 ```bash
-npm run start
+npm run voice
 ```
 
-8.  **File audio sẽ được lưu tại folder `/output`**
+3. **Mở file audio vừa tạo gần nhất**
+   Chạy `/run/play.bat`
+
+**NOTE:**
+
+`Config.js` lưu cài đặt giọng nói, có thể thay đổi trực tiếp tại đây:
+
+```
+module.exports = {
+  "voice": {
+    "languageCode": "vi-VN",
+    "voiceName": "vi-VN-Wavenet-A"
+  },
+  "audioConfig": {
+    "audioEncoding": "MP3",
+    "speakingRate": 1.5,
+    "pitch": -1.5,
+    "volumeGainDb": 0,
+    "sampleRateHertz": 24000,
+    "effectsProfileId": [
+      "handset-class-device"
+    ]
+  }
+}
+```
